@@ -1,0 +1,20 @@
+spring:
+  couchbase:
+    connection-string: 28827.macdao.com
+    username: Administrator
+    password: 111111
+    bucketName: travel-sample
+  boot:
+    admin:
+      client:
+        url: http://localhost:8080
+logging:
+  level:
+    root: INFO
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
