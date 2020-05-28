@@ -22,4 +22,9 @@ public class CouchBaseController {
     public Flux<Travel> getTravel(String city) {
         return travelReactiveRepository.findByCity(city);
     }
+
+    @GetMapping(value = "/travels", params = {"callSign"})
+    public Flux<Travel> getTravelByCityAndCallSign(String city, String callSign) {
+        return travelReactiveRepository.findByCityAndCallSign(city, callSign);
+    }
 }

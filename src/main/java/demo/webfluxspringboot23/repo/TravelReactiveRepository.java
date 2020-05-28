@@ -15,4 +15,6 @@ public interface TravelReactiveRepository extends ReactiveCouchbaseRepository<Tr
     Flux<Travel> findByCountry(String country);
 
     Flux<Travel> findByCity(String city);
+
+    Flux<Travel> findByCityAndCallSign(String city, String callSign);
 }
