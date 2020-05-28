@@ -2,8 +2,6 @@ package demo.webfluxspringboot23;
 
 import demo.webfluxspringboot23.repo.TravelReactiveRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
@@ -23,8 +21,8 @@ public class CouchBaseController {
         return travelReactiveRepository.findByCity(city);
     }
 
-    @GetMapping(value = "/travels", params = {"callSign"})
-    public Flux<Travel> getTravelByCityAndCallSign(String city, String callSign) {
-        return travelReactiveRepository.findByCityAndCallSign(city, callSign);
+    @GetMapping(value = "/travels", params = {"icao"})
+    public Flux<Travel> getTravelByCityAndCallSign(String city, String icao) {
+        return travelReactiveRepository.findByCityAndIcao(city, icao);
     }
 }
