@@ -20,7 +20,6 @@ public class CouchBaseController {
 
     @GetMapping("/travels")
     public Flux<Travel> getTravel(String city) {
-        log.error("city=" + city);
         return travelReactiveRepository.findByCity(city);
     }
 }
