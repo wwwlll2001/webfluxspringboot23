@@ -1,7 +1,7 @@
 package demo.webfluxspringboot23.repo;
 
 import demo.webfluxspringboot23.Travel;
-import org.springframework.data.couchbase.repository.Query;
+import org.springframework.data.couchbase.core.query.Query;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
 

@@ -1,5 +1,5 @@
 plugins {
-	id 'org.springframework.boot' version '2.3.0.RELEASE'
+	id 'org.springframework.boot' version '2.0.6.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 	id 'java'
 }
@@ -18,17 +18,17 @@ repositories {
 	mavenCentral()
 }
 
-ext {
-	set('springBootAdminVersion', "2.2.3")
-}
+//ext {
+//	set('springBootAdminVersion', "2.2.3")
+//}
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-data-couchbase-reactive'
 //	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
-	implementation 'de.codecentric:spring-boot-admin-starter-server'
-	implementation 'de.codecentric:spring-boot-admin-starter-client'
+//	implementation 'de.codecentric:spring-boot-admin-starter-server'
+//	implementation 'de.codecentric:spring-boot-admin-starter-client'
 	compileOnly 'org.projectlombok:lombok'
 //	runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
 	annotationProcessor 'org.projectlombok:lombok'
@@ -36,12 +36,6 @@ dependencies {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
 	testImplementation 'io.projectreactor:reactor-test'
-}
-
-dependencyManagement {
-	imports {
-		mavenBom "de.codecentric:spring-boot-admin-dependencies:${springBootAdminVersion}"
-	}
 }
 
 test {
