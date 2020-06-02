@@ -22,6 +22,11 @@ public class CouchBaseController {
         return travelReactiveRepository.findByCity(city);
     }
 
+    @GetMapping("/travel")
+    public Flux<Travel> getTravel1() {
+        return travelReactiveRepository.findByCity("Calais");
+    }
+
     @GetMapping(value = "/travels", params = {"icao"})
     public Flux<Travel> getTravelByCityAndCallSign(String city, String icao) {
         return travelReactiveRepository.findByCityAndIcao(city, icao);
