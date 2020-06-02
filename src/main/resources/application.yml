@@ -1,6 +1,6 @@
 spring:
   couchbase:
-    connection-string: wanglei1.macdao.com, wanglei2.macdao.com
+    connection-string: 172.31.41.157,172.31.47.41,172.31.43.251
     username: Administrator
     password: 111111
     bucketName: travel-sample
