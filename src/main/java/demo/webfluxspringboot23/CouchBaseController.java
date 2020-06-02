@@ -19,7 +19,7 @@ public class CouchBaseController {
 
     @GetMapping("/travels")
     public Flux<Travel> getTravel(String city) {
-        return travelReactiveRepository.findByCity("Calais");
+        return travelReactiveRepository.findByCity(city);
     }
 
     @GetMapping("/travel")
