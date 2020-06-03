@@ -5,6 +5,7 @@ spring:
       stacktrace-mode.enabled: true
     username: Administrator
     password: 111111
+    bucket: travel-sample
 logging:
   level:
     root: INFO
