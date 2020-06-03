@@ -1,11 +1,10 @@
 spring:
   couchbase:
     bootstrap-hosts: 172.31.41.157,172.31.47.41,172.31.43.251
-    bucket:
-      name: travel-sample
-      password: 111111
     reactor:
       stacktrace-mode.enabled: true
+    username: Administrator
+    password: 111111
 logging:
   level:
     root: INFO
