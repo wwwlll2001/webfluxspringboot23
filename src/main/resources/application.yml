@@ -9,6 +9,10 @@ spring:
     env:
       timeouts:
         query: 4000ms
+      endpoints:
+        queryservice:
+          min-endpoints: 10
+          max-endpoints: 20
 
 logging:
   level:
