@@ -6,6 +6,10 @@ spring:
     bucket:
       name: travel-sample
       password: 111111
+    env:
+      timeouts:
+        query: 60000ms
+
 logging:
   level:
     root: INFO
