@@ -3,7 +3,7 @@ spring:
     bootstrap-hosts: 172.31.41.157,172.31.47.41,172.31.43.251
     reactor:
       stacktrace-mode.enabled: true
-    username: Administrator
+    username: travel-sample
     password: 111111
 logging:
   level:
