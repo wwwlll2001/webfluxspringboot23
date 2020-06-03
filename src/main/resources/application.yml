@@ -8,7 +8,7 @@ spring:
       password: 111111
     env:
       timeouts:
-        query: 60000ms
+        query: 4000ms
 
 logging:
   level:
