@@ -27,7 +27,7 @@ public class WebfluxSpringboot23Application implements CommandLineRunner {
     public void run(String... args) throws Exception {
         Scheduler scheduler = Schedulers.newElastic("nudge-worker");
         ArrayList<Travel> travels;
-        for (int j = 1; j <= 10000; j++) {
+        for (int j = 10001; j <= 1000000; j++) {
             travels = new ArrayList<>();
             for (int i = 0; i < 10; i++) {
                 Travel travel = new Travel();
