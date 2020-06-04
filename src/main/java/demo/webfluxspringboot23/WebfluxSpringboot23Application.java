@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import reactor.core.scheduler.Scheduler;
+import reactor.core.scheduler.Schedulers;
 
 import java.util.ArrayList;
 import java.util.UUID;
@@ -23,6 +25,7 @@ public class WebfluxSpringboot23Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        Scheduler scheduler = Schedulers.newElastic("nudge-worker");
         ArrayList<Travel> travels = new ArrayList<>();
         for (int j = 1; j <= 20000; j++) {
             for (int i = 0; i < 1000; i++) {
@@ -38,7 +41,9 @@ public class WebfluxSpringboot23Application implements CommandLineRunner {
                 travel.setVersion(UUID.randomUUID().toString());
                 travels.add(travel);
             }
-            travelReactiveRepository.saveAll(travels).subscribe();
+            travelReactiveRepository.saveAll(travels)
+                    .subscribeOn(scheduler)
+                    .subscribe();
             log.info("add finish :" + j);
         }
     }
