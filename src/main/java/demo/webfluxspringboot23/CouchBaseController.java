@@ -7,24 +7,44 @@ import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.UUID;
+
 @RestController
 @Slf4j
 public class CouchBaseController {
 
     private final TravelReactiveRepository travelReactiveRepository;
+    private Random random = new Random();
 
     public CouchBaseController(TravelReactiveRepository travelReactiveRepository) {
         this.travelReactiveRepository = travelReactiveRepository;
     }
 
     @GetMapping("/travels")
-    public Flux<Travel> getTravel(String city) {
+    public Flux<Travel> getTravel() {
+        String city = "City-" + random.nextInt(20000000);
         return travelReactiveRepository.findByCity(city);
     }
 
-    @GetMapping("/travel")
-    public Flux<Travel> getTravel1() {
-        return travelReactiveRepository.findByCity("Calais");
+    @GetMapping("/add")
+    public Flux<Travel> getTravel1(int start, int end) {
+        ArrayList<Travel> travels = new ArrayList<>();
+        for (int i = start; i < end; i++) {
+            Travel travel = new Travel();
+            travel.setCity("City-" + i);
+            travel.setCallSign(UUID.randomUUID().toString());
+            travel.setCountry(UUID.randomUUID().toString());
+            travel.setIata(UUID.randomUUID().toString());
+            travel.setIcao(UUID.randomUUID().toString());
+            travel.setId(UUID.randomUUID().toString());
+            travel.setName(UUID.randomUUID().toString());
+            travel.setType(UUID.randomUUID().toString());
+            travel.setVersion(UUID.randomUUID().toString());
+            travels.add(travel);
+        }
+        return travelReactiveRepository.saveAll(travels);
     }
 
     @GetMapping(value = "/travels", params = {"icao"})
