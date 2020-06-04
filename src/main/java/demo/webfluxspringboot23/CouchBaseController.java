@@ -26,7 +26,20 @@ public class CouchBaseController {
     public Flux<Travel> getTravel() {
         String city = "City-" + random.nextInt(100000);
         log.info(city);
-        return travelReactiveRepository.findByCity("City-1");
+        return travelReactiveRepository.findByCity("city");
+    }
+
+    @GetMapping("/add")
+    public Flux<Travel> getTravel1(int start, int end) {
+        ArrayList<Travel> travels = new ArrayList<>();
+        for (int i = start; i < end; i++) {
+            Travel travel = new Travel();
+            travel.setCity("City-" + i);
+            travel.setCallSign(UUID.randomUUID().toString());
+            travel.setCountry(UUID.randomUUID().toString());
+            travels.add(travel);
+        }
+        return travelReactiveRepository.saveAll(travels);
     }
 
     @GetMapping(value = "/travels", params = {"icao"})
