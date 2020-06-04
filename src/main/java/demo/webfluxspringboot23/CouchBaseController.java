@@ -24,7 +24,7 @@ public class CouchBaseController {
 
     @GetMapping("/travels")
     public Flux<Travel> getTravel() {
-        String city = "City-" + random.nextInt(1000000);
+        String city = "City-" + random.nextInt(10000000);
         return travelReactiveRepository.findByCity(city);
     }
 
