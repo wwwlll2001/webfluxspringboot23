@@ -16,6 +16,6 @@ spring:
 
 logging:
   level:
-    org.springframework.data.couchbase.repository.query: DEBUG
+    org.springframework.data.couchbase.repository.query: INFO
 
 
