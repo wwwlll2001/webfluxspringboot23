@@ -34,7 +34,8 @@ public class CouchBaseController {
         for (int i = start; i < end; i++) {
             Travel travel = new Travel();
             travel.setCity("City-" + i);
-           // travel.setCountry(UUID.randomUUID().toString());
+            travel.setCallSign(UUID.randomUUID().toString());
+            travel.setCountry(UUID.randomUUID().toString());
             travels.add(travel);
         }
         return travelReactiveRepository.saveAll(travels);
