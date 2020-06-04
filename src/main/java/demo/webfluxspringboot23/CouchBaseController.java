@@ -38,10 +38,8 @@ public class CouchBaseController {
             travel.setCountry(UUID.randomUUID().toString());
             travel.setIata(UUID.randomUUID().toString());
             travel.setIcao(UUID.randomUUID().toString());
-            travel.setId(UUID.randomUUID().toString());
             travel.setName(UUID.randomUUID().toString());
             travel.setType(UUID.randomUUID().toString());
-            travel.setVersion(UUID.randomUUID().toString());
             travels.add(travel);
         }
         return travelReactiveRepository.saveAll(travels);
