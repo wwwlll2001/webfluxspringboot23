@@ -11,8 +11,7 @@ spring:
         query: 4000ms
       endpoints:
         queryservice:
-          min-endpoints: 20
-          max-endpoints: 50
+          max-endpoints: 10
 
 logging:
   level:
