@@ -14,32 +14,10 @@ import java.util.UUID;
 
 @SpringBootApplication
 @Slf4j
-public class WebfluxSpringboot23Application implements CommandLineRunner {
+public class WebfluxSpringboot23Application  {
 
     public static void main(String[] args) {
         SpringApplication.run(WebfluxSpringboot23Application.class, args);
     }
 
-    @Autowired
-    private TravelReactiveRepository travelReactiveRepository;
-
-    @Override
-    public void run(String... args) throws Exception {
-        Scheduler scheduler = Schedulers.newElastic("nudge-worker");
-        ArrayList<Travel> travels;
-        for (int j = 10001; j <= 1000000; j++) {
-            travels = new ArrayList<>();
-            for (int i = 0; i < 10; i++) {
-                Travel travel = new Travel();
-                travel.setCity("City-" + j);
-                travel.setCallSign(UUID.randomUUID().toString());
-                travel.setCountry(UUID.randomUUID().toString());
-                travels.add(travel);
-            }
-            travelReactiveRepository.saveAll(travels)
-                    .subscribeOn(scheduler)
-                    .subscribe();
-            log.info("add finish :" + j);
-        }
-    }
 }
