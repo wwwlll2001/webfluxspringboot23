@@ -34,10 +34,6 @@ public class WebfluxSpringboot23Application implements CommandLineRunner {
                 travel.setCity("City-" + j);
                 travel.setCallSign(UUID.randomUUID().toString());
                 travel.setCountry(UUID.randomUUID().toString());
-                travel.setIata(UUID.randomUUID().toString());
-                travel.setIcao(UUID.randomUUID().toString());
-                travel.setName(UUID.randomUUID().toString());
-                travel.setType(UUID.randomUUID().toString());
                 travels.add(travel);
             }
             travelReactiveRepository.saveAll(travels)
